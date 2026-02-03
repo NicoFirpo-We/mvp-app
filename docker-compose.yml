@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    container_name: tn_combos_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: tn
+      POSTGRES_PASSWORD: tnpass
+      POSTGRES_DB: tn_combos
+    ports:
+      - "5432:5432"
+    volumes:
+      - tn_combos_pg:/var/lib/postgresql/data
+
+volumes:
+  tn_combos_pg:
